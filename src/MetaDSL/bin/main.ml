@@ -1,6 +1,5 @@
 open Meta_dsl_lib.Lexer
 open Meta_dsl_lib.Parser
-open Meta_dsl_lib.Ast
 open Printf
 open Sedlexing
 open Sys
@@ -57,20 +56,17 @@ let rec print_tokens lexbuf =
 
 (* Fonction pour tester le parseur *)
 let test_parser lexbuf =
-  (* Créer un supplier compatible avec Menhir *)
-  let supplier = with_tokenizer token lexbuf in
   try
-    (* Appeler le parseur *)
-    let ast = program supplier in
-    (* Afficher un message de succès *)
-    print_endline "Parsing succeeded.";
+    (* Utilisez simplement `token lexbuf` comme le lexer *)
+    let ast = Meta_dsl_lib.Parser.program token lexbuf in
+    print_endline "Parsing succeeded."
     (* Optionnellement, afficher l'AST *)
     (* print_endline (Ast.string_of_program ast); *)
   with
-  | Error ->
-    let (_, curr_pos) = lexing_positions lexbuf in
-    printf "Syntax error at line %d, character %d\n"
-      curr_pos.pos_lnum (curr_pos.pos_cnum - curr_pos.pos_bol + 1);
+  | Meta_dsl_lib.Parser.Error ->
+    let pos, _ = Sedlexing.lexing_positions lexbuf in
+    Printf.printf "Syntax error at line %d, character %d\n"
+      pos.pos_lnum (pos.pos_cnum - pos.pos_bol + 1);
     exit 1
 
 (* Fonction principale *)
@@ -82,9 +78,9 @@ let () =
     let input = read_file filename in
 
     (* Créer un lexbuf pour l'analyse lexicale *)
-    let lexbuf_tokens = from_string input in
+    let lexbuf_tokens = Utf8.from_string input in
     print_tokens lexbuf_tokens;
 
     (* Créer un nouveau lexbuf pour l'analyse syntaxique *)
-    let lexbuf_parser = from_string input in
+    let lexbuf_parser = Sedlexing.Utf8.from_string input in
     test_parser lexbuf_parser

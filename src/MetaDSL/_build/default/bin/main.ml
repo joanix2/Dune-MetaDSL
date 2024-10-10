@@ -1,9 +1,7 @@
 open Meta_dsl_lib.Lexer
 open Meta_dsl_lib.Parser
-open Meta_dsl_lib.Ast
 open Printf
 open Sedlexing
-open Sedlexing.Utf8
 open Sys
 open Array
 
@@ -58,22 +56,31 @@ let rec print_tokens lexbuf =
 
 (* Fonction pour tester le parseur *)
 let test_parser lexbuf =
-  let supplier = Sedlexing.with_tokenizer token lexbuf in
   try
-    let ast = Meta_dsl_lib.Parser.program supplier in
+    (* Utilisez simplement `token lexbuf` comme le lexer *)
+    let ast = Meta_dsl_lib.Parser.program token lexbuf in
     print_endline "Parsing succeeded."
+    (* Optionnellement, afficher l'AST *)
+    (* print_endline (Ast.string_of_program ast); *)
   with
-  | Parser.Error ->
-    let (_, curr_pos) = Sedlexing.lexing_positions lexbuf in
-    printf "Syntax error at line %d, character %d\n"
-      curr_pos.pos_lnum (curr_pos.pos_cnum - curr_pos.pos_bol + 1);
+  | Meta_dsl_lib.Parser.Error ->
+    let pos, _ = Sedlexing.lexing_positions lexbuf in
+    Printf.printf "Syntax error at line %d, character %d\n"
+      pos.pos_lnum (pos.pos_cnum - pos.pos_bol + 1);
     exit 1
 
+(* Fonction principale *)
 let () =
-  if Array.length Sys.argv < 2 then
-    printf "Usage: %s <filename>\n" Sys.argv.(0)
+  if length argv < 2 then
+    printf "Usage: %s <filename>\n" argv.(0)
   else
-    let filename = Sys.argv.(1) in
+    let filename = argv.(1) in
     let input = read_file filename in
-    let lexbuf = from_string input in
-    test_parser lexbuf
+
+    (* Créer un lexbuf pour l'analyse lexicale *)
+    let lexbuf_tokens = Utf8.from_string input in
+    print_tokens lexbuf_tokens;
+
+    (* Créer un nouveau lexbuf pour l'analyse syntaxique *)
+    let lexbuf_parser = Sedlexing.Utf8.from_string input in
+    test_parser lexbuf_parser

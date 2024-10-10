@@ -1,0 +1,32 @@
+# Fichiers et dossiers générés par Dune
+_build/
+*.install
+
+# Fichiers temporaires
+*.o
+*.cm*
+*.a
+*.so
+
+# Fichiers de sauvegarde
+*~
+*.swp
+*.swo
+
+# Fichiers spécifiques à OCaml
+*.annot
+*.cmt
+*.cmti
+*.cmi
+*.cmo
+*.cmx
+*.exe
+
+# Fichiers de test générés
+test/models/
+*.mdsl
+
+# Fichiers spécifiques à l'environnement
+*.merlin
+*.opam
+.opam-switch/
