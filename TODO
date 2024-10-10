@@ -1,7 +1,20 @@
-Création des modèles
-Création du init
-Création des variables
-Création des filres
+### Liste des TODO
 
-Création des roles
-Création des routes
+1. **Création du lexer** [x] - 1 jour
+2. **Création du parser** [ ] - 1 jour
+3. **Création des modèles** [ ] - 1 jour
+4. **Ajout de l'initialisation des instances des modèles** [ ] - 4 heures
+5. **Création des constantes** [ ] - 1 jour
+6. **Ajout de filtres sur les champs** [ ] - 10 heures
+7. **Création des rôles** [ ] - 1 jour
+8. **Création des DTOs .NET** [ ] - 1 jour
+9. **Création des routes** [ ] - 1 jour
+10. **Création des DTOs TypeScript** [ ] - 1 jour
+11. **Création des services TypeScript** [ ] - 1 jour
+12. **Création des formulaires** [ ] - 2 jours
+13. **Création des datatables** [ ] - 2 jours
+14. **Coloration syntaxique du DSL** [ ] - 3 jours
+15. **Génération de code avec ChatGPT** [ ] - 6 heures
+16. **Interface graphique UML** [ ] - 2 jours
+17. **Initialisation du projet** [ ] - 2 jours
+18. **Auto-correction des bugs** [ ] - 3 jours
