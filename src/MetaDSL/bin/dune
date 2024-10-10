@@ -1,0 +1,7 @@
+(executable
+ (name main)
+ (public_name MetaDSL)
+ (modules main)
+ (libraries meta_dsl_lib sedlex)
+ (preprocess
+  (pps sedlex.ppx)))

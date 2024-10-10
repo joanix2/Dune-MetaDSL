@@ -1,0 +1,41 @@
+type token =
+    VISIBLE
+  | USER
+  | UNIQUE
+  | STRING of string
+  | SEMICOLON
+  | RPAREN
+  | ROLES
+  | ROLE
+  | REQUIRED
+  | RBRACKET
+  | RBRACE
+  | PRIMARY
+  | PASSWORD
+  | ONE_TO_ONE
+  | NUMBER of int
+  | MODELS
+  | MANY_TO_ONE
+  | MANY_TO_MANY
+  | LPAREN
+  | LBRACKET
+  | LBRACE
+  | INIT
+  | IDENT of string
+  | HEX_NUMBER of string
+  | EQUAL
+  | EQEQ
+  | EOF
+  | EMAIL
+  | CONST
+  | COMMA
+  | COLON
+val menhir_begin_marker : int
+val xv_program : Ast.program
+val xv_model_decls : Ast.model_decl list
+val xv_model_decl : Ast.model_decl
+val xv_field_options : Ast.field_option list
+val xv_field_option : Ast.field_option
+val xv_field_decls : Ast.field_decl list
+val xv_field_decl : Ast.field_decl
+val menhir_end_marker : int

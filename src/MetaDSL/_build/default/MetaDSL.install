@@ -1,0 +1,32 @@
+lib: [
+  "_build/install/default/lib/MetaDSL/META"
+  "_build/install/default/lib/MetaDSL/dune-package"
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/ast.ml" {"meta_dsl_lib/ast.ml"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/lexer.ml" {"meta_dsl_lib/lexer.ml"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib.a" {"meta_dsl_lib/meta_dsl_lib.a"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib.cma" {"meta_dsl_lib/meta_dsl_lib.cma"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib.cmi" {"meta_dsl_lib/meta_dsl_lib.cmi"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib.cmt" {"meta_dsl_lib/meta_dsl_lib.cmt"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib.cmx" {"meta_dsl_lib/meta_dsl_lib.cmx"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib.cmxa" {"meta_dsl_lib/meta_dsl_lib.cmxa"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib.ml" {"meta_dsl_lib/meta_dsl_lib.ml"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib__Ast.cmi" {"meta_dsl_lib/meta_dsl_lib__Ast.cmi"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib__Ast.cmt" {"meta_dsl_lib/meta_dsl_lib__Ast.cmt"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib__Ast.cmx" {"meta_dsl_lib/meta_dsl_lib__Ast.cmx"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib__Lexer.cmi" {"meta_dsl_lib/meta_dsl_lib__Lexer.cmi"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib__Lexer.cmt" {"meta_dsl_lib/meta_dsl_lib__Lexer.cmt"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib__Lexer.cmx" {"meta_dsl_lib/meta_dsl_lib__Lexer.cmx"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib__Parser.cmi" {"meta_dsl_lib/meta_dsl_lib__Parser.cmi"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib__Parser.cmt" {"meta_dsl_lib/meta_dsl_lib__Parser.cmt"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib__Parser.cmti" {"meta_dsl_lib/meta_dsl_lib__Parser.cmti"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib__Parser.cmx" {"meta_dsl_lib/meta_dsl_lib__Parser.cmx"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/parser.ml" {"meta_dsl_lib/parser.ml"}
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/parser.mli" {"meta_dsl_lib/parser.mli"}
+  "_build/install/default/lib/MetaDSL/opam"
+]
+libexec: [
+  "_build/install/default/lib/MetaDSL/meta_dsl_lib/meta_dsl_lib.cmxs" {"meta_dsl_lib/meta_dsl_lib.cmxs"}
+]
+bin: [
+  "_build/install/default/bin/MetaDSL"
+]

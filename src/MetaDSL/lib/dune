@@ -1,0 +1,11 @@
+(library
+ (name meta_dsl_lib)
+ (public_name MetaDSL.meta_dsl_lib)
+ (modules ast lexer parser)
+ (libraries sedlex)
+ (preprocess
+  (pps sedlex.ppx)))
+
+(menhir
+ (modules parser)
+ (infer true))

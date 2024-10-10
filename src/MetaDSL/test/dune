@@ -1,0 +1,11 @@
+(test
+ (name test_lexer)
+ (modules test_lexer)
+ (libraries MetaDSL.meta_dsl_lib sedlex ounit2)
+ (deps models_test.mdsl))
+
+(test
+ (name test_parser)
+ (modules test_parser)
+ (libraries MetaDSL.meta_dsl_lib sedlex ounit2)
+ (deps models_test.mdsl))

@@ -1,0 +1,9 @@
+package "meta_dsl_lib" (
+  directory = "meta_dsl_lib"
+  description = ""
+  requires = "sedlex"
+  archive(byte) = "meta_dsl_lib.cma"
+  archive(native) = "meta_dsl_lib.cmxa"
+  plugin(byte) = "meta_dsl_lib.cma"
+  plugin(native) = "meta_dsl_lib.cmxs"
+)

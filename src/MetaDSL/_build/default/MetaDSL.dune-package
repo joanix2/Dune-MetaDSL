@@ -1,0 +1,72 @@
+(lang dune 3.16)
+(name MetaDSL)
+(sections (lib .) (libexec .) (bin ../../bin))
+(files
+ (lib
+  (META
+   dune-package
+   meta_dsl_lib/ast.ml
+   meta_dsl_lib/lexer.ml
+   meta_dsl_lib/meta_dsl_lib.a
+   meta_dsl_lib/meta_dsl_lib.cma
+   meta_dsl_lib/meta_dsl_lib.cmi
+   meta_dsl_lib/meta_dsl_lib.cmt
+   meta_dsl_lib/meta_dsl_lib.cmx
+   meta_dsl_lib/meta_dsl_lib.cmxa
+   meta_dsl_lib/meta_dsl_lib.ml
+   meta_dsl_lib/meta_dsl_lib__Ast.cmi
+   meta_dsl_lib/meta_dsl_lib__Ast.cmt
+   meta_dsl_lib/meta_dsl_lib__Ast.cmx
+   meta_dsl_lib/meta_dsl_lib__Lexer.cmi
+   meta_dsl_lib/meta_dsl_lib__Lexer.cmt
+   meta_dsl_lib/meta_dsl_lib__Lexer.cmx
+   meta_dsl_lib/meta_dsl_lib__Parser.cmi
+   meta_dsl_lib/meta_dsl_lib__Parser.cmt
+   meta_dsl_lib/meta_dsl_lib__Parser.cmti
+   meta_dsl_lib/meta_dsl_lib__Parser.cmx
+   meta_dsl_lib/parser.ml
+   meta_dsl_lib/parser.mli
+   opam))
+ (libexec (meta_dsl_lib/meta_dsl_lib.cmxs))
+ (bin (MetaDSL)))
+(library
+ (name MetaDSL.meta_dsl_lib)
+ (kind normal)
+ (archives
+  (byte meta_dsl_lib/meta_dsl_lib.cma)
+  (native meta_dsl_lib/meta_dsl_lib.cmxa))
+ (plugins
+  (byte meta_dsl_lib/meta_dsl_lib.cma)
+  (native meta_dsl_lib/meta_dsl_lib.cmxs))
+ (native_archives meta_dsl_lib/meta_dsl_lib.a)
+ (requires sedlex)
+ (main_module_name Meta_dsl_lib)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name meta_dsl_lib)
+     (visibility public)
+     (kind alias)
+     (source
+      (path Meta_dsl_lib)
+      (impl (path meta_dsl_lib/meta_dsl_lib.ml-gen))))
+    (name Meta_dsl_lib)
+    (modules
+     (module
+      (obj_name meta_dsl_lib__Ast)
+      (visibility public)
+      (source (path Ast) (impl (path meta_dsl_lib/ast.ml))))
+     (module
+      (obj_name meta_dsl_lib__Lexer)
+      (visibility public)
+      (source (path Lexer) (impl (path meta_dsl_lib/lexer.ml))))
+     (module
+      (obj_name meta_dsl_lib__Parser)
+      (visibility public)
+      (source
+       (path Parser)
+       (intf (path meta_dsl_lib/parser.mli))
+       (impl (path meta_dsl_lib/parser.ml))))))
+   (wrapped true))))
